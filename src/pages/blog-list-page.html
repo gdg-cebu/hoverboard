@@ -1,13 +1,13 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/plastic-image/plastic-image.html">
-<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
+<script type="module" src="../../../plastic-image/plastic-image.js"></script>
+<script type="module" src="../../../@polymer/paper-progress/paper-progress.js"></script>
 
-<link rel="import" href="../mixins/utils-functions.html">
-<link rel="import" href="../mixins/redux-mixin.html">
-<link rel="import" href="../elements/shared-styles.html">
-<link rel="import" href="../elements/posts-list.html">
-<link rel="import" href="../elements/text-truncate.html">
-<link rel="import" href="../elements/content-loader.html">
+<script type="module" src="../mixins/utils-functions.js"></script>
+<script type="module" src="../mixins/redux-mixin.js"></script>
+<script type="module" src="../elements/shared-styles.js"></script>
+<script type="module" src="../elements/posts-list.js"></script>
+<script type="module" src="../elements/text-truncate.js"></script>
+<script type="module" src="../elements/content-loader.js"></script>
 
 <dom-module id="blog-list-page">
   <template>
@@ -162,67 +162,76 @@
 
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../plastic-image/plastic-image.js';
+import '../../../@polymer/paper-progress/paper-progress.js';
+import '../mixins/utils-functions.js';
+import '../mixins/redux-mixin.js';
+import '../elements/shared-styles.js';
+import '../elements/posts-list.js';
+import '../elements/text-truncate.js';
+import '../elements/content-loader.js';
 
-    // eslint-disable-next-line no-undef
-    class BlogListPage extends UtilsFunctions(ReduxMixin(Polymer.Element)) {
-      static get is() {
-        return 'blog-list-page';
-      }
+// eslint-disable-next-line no-undef
+class BlogListPage extends UtilsFunctions(ReduxMixin(Element)) {
+  static get is() {
+    return 'blog-list-page';
+  }
 
-      static get properties() {
-        return {
-          active: Boolean,
-          postsSource: {
-            type: Object,
-            statePath: 'blog',
-            observer: '_transformPosts',
-          },
-          viewport: {
-            type: Object,
-            statePath: 'ui.viewport',
-          },
-          posts: Array,
-          featuredPosts: Array,
-          contentLoaderVisibility: {
-            type: String,
-            value: null,
-          },
-        };
-      }
+  static get properties() {
+    return {
+      active: Boolean,
+      postsSource: {
+        type: Object,
+        statePath: 'blog',
+        observer: '_transformPosts',
+      },
+      viewport: {
+        type: Object,
+        statePath: 'ui.viewport',
+      },
+      posts: Array,
+      featuredPosts: Array,
+      contentLoaderVisibility: {
+        type: String,
+        value: null,
+      },
+    };
+  }
 
-      connectedCallback() {
-        super.connectedCallback();
-        if (!Object.keys(this.postsSource).length) blogActions.fetchList();
-      }
+  connectedCallback() {
+    super.connectedCallback();
+    if (!Object.keys(this.postsSource).length) blogActions.fetchList();
+  }
 
-      static get observers() {
-        return [
-          '_postsChanged(postsSource)',
-        ];
-      }
+  static get observers() {
+    return [
+      '_postsChanged(postsSource)',
+    ];
+  }
 
-      _postsChanged() {
-        if (this.postsSource && Object.keys(this.postsSource).length) {
-          this.contentLoaderVisibility = 'hidden';
-        }
-      }
-
-      _transformPosts(postsSource) {
-        const sortedPosts = this.transformToArray(postsSource, 'id')
-          .sort((a, b) => b.published.localeCompare(a.published));
-        this.set('featuredPosts', sortedPosts.slice(0, 3));
-        this.set('posts', sortedPosts.slice(3));
-      }
-
-      _addIfNotPhone(base, additional) {
-        if (this.viewport.isTabletPlus) {
-          return base + additional;
-        }
-        return base;
-      }
+  _postsChanged() {
+    if (this.postsSource && Object.keys(this.postsSource).length) {
+      this.contentLoaderVisibility = 'hidden';
     }
+  }
 
-    window.customElements.define(BlogListPage.is, BlogListPage);
-  </script>
+  _transformPosts(postsSource) {
+    const sortedPosts = this.transformToArray(postsSource, 'id')
+      .sort((a, b) => b.published.localeCompare(a.published));
+    this.set('featuredPosts', sortedPosts.slice(0, 3));
+    this.set('posts', sortedPosts.slice(3));
+  }
+
+  _addIfNotPhone(base, additional) {
+    if (this.viewport.isTabletPlus) {
+      return base + additional;
+    }
+    return base;
+  }
+}
+
+window.customElements.define(BlogListPage.is, BlogListPage);
+</script>
 </dom-module>

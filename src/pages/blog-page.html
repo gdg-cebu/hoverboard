@@ -1,9 +1,9 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
 
-<link rel="import" href="../../bower_components/app-route/app-route.html">
-<link rel="import" href="../../bower_components/iron-lazy-pages/iron-lazy-pages.html">
+<script type="module" src="../../../@polymer/app-route/app-route.js"></script>
+<script type="module" src="../../../iron-lazy-pages/iron-lazy-pages.js"></script>
 
-<link rel="import" href="../mixins/scroll-functions.html">
+<script type="module" src="../mixins/scroll-functions.js"></script>
 
 <dom-module id="blog-page">
   <template>
@@ -37,37 +37,41 @@
     <footer-block></footer-block>
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/app-route/app-route.js';
+import '../../../iron-lazy-pages/iron-lazy-pages.js';
+import '../mixins/scroll-functions.js';
 
-    // eslint-disable-next-line no-undef
-    class BlogPage extends ScrollFunctions(Polymer.Element) {
-      static get is() {
-        return 'blog-page';
-      }
+// eslint-disable-next-line no-undef
+class BlogPage extends ScrollFunctions(Element) {
+  static get is() {
+    return 'blog-page';
+  }
 
-      static get properties() {
-        return {
-          route: Object,
-          active: Boolean,
-        };
-      }
+  static get properties() {
+    return {
+      route: Object,
+      active: Boolean,
+    };
+  }
 
-      static get observers() {
-        return [
-          '_routeChanged(active, route)',
-        ];
-      }
+  static get observers() {
+    return [
+      '_routeChanged(active, route)',
+    ];
+  }
 
-      _routeChanged(active, route) {
-        if (active && route) {
-          this.scrollToY(0, 200);
-          this.set('subRoute', {});
-          this.set('_route', route);
-          routingActions.setSubRoute(this.routeData.page);
-        }
-      }
+  _routeChanged(active, route) {
+    if (active && route) {
+      this.scrollToY(0, 200);
+      this.set('subRoute', {});
+      this.set('_route', route);
+      routingActions.setSubRoute(this.routeData.page);
     }
+  }
+}
 
-    window.customElements.define(BlogPage.is, BlogPage);
-  </script>
+window.customElements.define(BlogPage.is, BlogPage);
+</script>
 </dom-module>

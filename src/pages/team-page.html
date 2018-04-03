@@ -1,11 +1,11 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/marked-element/marked-element.html">
-<link rel="import" href="../../bower_components/plastic-image/plastic-image.html">
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
+<script type="module" src="../../../@polymer/marked-element/marked-element.js"></script>
+<script type="module" src="../../../plastic-image/plastic-image.js"></script>
+<script type="module" src="../../../@polymer/paper-icon-button/paper-icon-button.js"></script>
+<script type="module" src="../../../@polymer/iron-icon/iron-icon.js"></script>
 
-<link rel="import" href="../mixins/redux-mixin.html">
-<link rel="import" href="../elements/shared-styles.html">
+<script type="module" src="../mixins/redux-mixin.js"></script>
+<script type="module" src="../elements/shared-styles.js"></script>
 
 <dom-module id="team-page">
   <template>
@@ -163,29 +163,35 @@
     <footer-block></footer-block>
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/marked-element/marked-element.js';
+import '../../../plastic-image/plastic-image.js';
+import '../../../@polymer/paper-icon-button/paper-icon-button.js';
+import '../../../@polymer/iron-icon/iron-icon.js';
+import '../mixins/redux-mixin.js';
+import '../elements/shared-styles.js';
 
-    class TeamPage extends ReduxMixin(Polymer.Element) {
-      static get is() {return 'team-page';}
+class TeamPage extends ReduxMixin(Element) {
+  static get is() {return 'team-page';}
 
-       static get properties() {
-        return {
-          active: Boolean,
-          team: {
-            type: Object,
-            statePath: 'team',
-          },
-        };
-      }
+   static get properties() {
+    return {
+      active: Boolean,
+      team: {
+        type: Object,
+        statePath: 'team',
+      },
+    };
+  }
 
-      connectedCallback() {
-        super.connectedCallback();
-        teamActions.fetchTeam();
-      }
-    }
+  connectedCallback() {
+    super.connectedCallback();
+    teamActions.fetchTeam();
+  }
+}
 
-    window.customElements.define(TeamPage.is, TeamPage);
-
-  </script>
+window.customElements.define(TeamPage.is, TeamPage);
+</script>
 </dom-module>
 

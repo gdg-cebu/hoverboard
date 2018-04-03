@@ -1,16 +1,16 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
 
-<link rel="import" href="../../bower_components/app-route/app-route.html">
-<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
+<script type="module" src="../../../@polymer/app-route/app-route.js"></script>
+<script type="module" src="../../../@polymer/iron-pages/iron-pages.js"></script>
+<script type="module" src="../../../@polymer/paper-progress/paper-progress.js"></script>
 
-<link rel="import" href="../mixins/utils-functions.html">
-<link rel="import" href="../mixins/redux-mixin.html">
-<link rel="import" href="../elements/shared-styles.html">
-<link rel="import" href="../elements/sticky-element.html">
-<link rel="import" href="../elements/header-bottom-toolbar.html">
-<link rel="import" href="../elements/schedule-day.html">
-<link rel="import" href="../elements/content-loader.html">
+<script type="module" src="../mixins/utils-functions.js"></script>
+<script type="module" src="../mixins/redux-mixin.js"></script>
+<script type="module" src="../elements/shared-styles.js"></script>
+<script type="module" src="../elements/sticky-element.js"></script>
+<script type="module" src="../elements/header-bottom-toolbar.js"></script>
+<script type="module" src="../elements/schedule-day.js"></script>
+<script type="module" src="../elements/content-loader.js"></script>
 
 <dom-module id="schedule-page">
   <template>
@@ -101,93 +101,103 @@
     <footer-block></footer-block>
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/app-route/app-route.js';
+import '../../../@polymer/iron-pages/iron-pages.js';
+import '../../../@polymer/paper-progress/paper-progress.js';
+import '../mixins/utils-functions.js';
+import '../mixins/redux-mixin.js';
+import '../elements/shared-styles.js';
+import '../elements/sticky-element.js';
+import '../elements/header-bottom-toolbar.js';
+import '../elements/schedule-day.js';
+import '../elements/content-loader.js';
 
-    // eslint-disable-next-line no-undef
-    class SchedulePage extends UtilsFunctions(ReduxMixin(Polymer.Element)) {
-      static get is() {
-        return 'schedule-page';
-      }
+// eslint-disable-next-line no-undef
+class SchedulePage extends UtilsFunctions(ReduxMixin(Element)) {
+  static get is() {
+    return 'schedule-page';
+  }
 
-      static get properties() {
-        return {
-          route: Object,
-          active: Boolean,
-          schedule: {
-            type: Object,
-            statePath: 'schedule',
-          },
-          user: {
-            type: Object,
-            statePath: 'user',
-          },
-          sessions: {
-            type: Object,
-            statePath: 'sessions',
-          },
-          subRoute: {
-            type: Object,
-            statePath: 'routing.subRoute',
-          },
-          isDialogOpened: {
-            type: Object,
-            statePath: 'dialogs.session.isOpened',
-          },
-          contentLoaderVisibility: {
-            type: String,
-            value: null,
-          },
-        };
-      }
+  static get properties() {
+    return {
+      route: Object,
+      active: Boolean,
+      schedule: {
+        type: Object,
+        statePath: 'schedule',
+      },
+      user: {
+        type: Object,
+        statePath: 'user',
+      },
+      sessions: {
+        type: Object,
+        statePath: 'sessions',
+      },
+      subRoute: {
+        type: Object,
+        statePath: 'routing.subRoute',
+      },
+      isDialogOpened: {
+        type: Object,
+        statePath: 'dialogs.session.isOpened',
+      },
+      contentLoaderVisibility: {
+        type: String,
+        value: null,
+      },
+    };
+  }
 
-      static get observers() {
-        return [
-          '_setDay(active, routeData.day, schedule.days)',
-          '_openSessionDetails(active, sessions.list, queryParams.sessionId)',
-          '_fetchFeaturedSessions(active, user.uid)',
-          '_scheduleChanged(schedule.days)',
-        ];
-      }
+  static get observers() {
+    return [
+      '_setDay(active, routeData.day, schedule.days)',
+      '_openSessionDetails(active, sessions.list, queryParams.sessionId)',
+      '_fetchFeaturedSessions(active, user.uid)',
+      '_scheduleChanged(schedule.days)',
+    ];
+  }
 
-      connectedCallback() {
-        super.connectedCallback();
-        if (!this.schedule.days) scheduleActions.fetchSchedule();
-      }
+  connectedCallback() {
+    super.connectedCallback();
+    if (!this.schedule.days) scheduleActions.fetchSchedule();
+  }
 
-      _scheduleChanged() {
-        if (this.schedule.days) {
-          this.contentLoaderVisibility = 'hidden';
-        }
-      }
-
-      _fetchFeaturedSessions(active, userUid) {
-        if (active && userUid && !this.sessions ||
-          this.sessions && this.sessions.featured && !this.sessions.featured.length) {
-          sessionsActions.fetchUserFeaturedSessions(userUid);
-        }
-      }
-
-      _setDay(active, day, scheduleDays) {
-        if (active && scheduleDays) {
-          routingActions.setSubRoute(day || Object.keys(scheduleDays)[0]);
-        }
-      }
-
-      _openSessionDetails(active, sessions, id) {
-        if (active && sessions && Object.keys(sessions).length) {
-          requestAnimationFrame(() => {
-            if (id) {
-              dialogsActions.openDialog(DIALOGS.SESSION, sessions[id]);
-            } else if (this.isDialogOpened) {
-              dialogsActions.closeDialog(DIALOGS.SESSION);
-            }
-          });
-        }
-      }
+  _scheduleChanged() {
+    if (this.schedule.days) {
+      this.contentLoaderVisibility = 'hidden';
     }
+  }
 
-    window.customElements.define(SchedulePage.is, SchedulePage);
+  _fetchFeaturedSessions(active, userUid) {
+    if (active && userUid && !this.sessions ||
+      this.sessions && this.sessions.featured && !this.sessions.featured.length) {
+      sessionsActions.fetchUserFeaturedSessions(userUid);
+    }
+  }
 
-  </script>
+  _setDay(active, day, scheduleDays) {
+    if (active && scheduleDays) {
+      routingActions.setSubRoute(day || Object.keys(scheduleDays)[0]);
+    }
+  }
+
+  _openSessionDetails(active, sessions, id) {
+    if (active && sessions && Object.keys(sessions).length) {
+      requestAnimationFrame(() => {
+        if (id) {
+          dialogsActions.openDialog(DIALOGS.SESSION, sessions[id]);
+        } else if (this.isDialogOpened) {
+          dialogsActions.closeDialog(DIALOGS.SESSION);
+        }
+      });
+    }
+  }
+}
+
+window.customElements.define(SchedulePage.is, SchedulePage);
+</script>
 </dom-module>
 

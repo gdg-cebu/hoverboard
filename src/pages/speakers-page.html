@@ -1,16 +1,16 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
 
-<link rel="import" href="../../bower_components/app-route/app-route.html">
-<link rel="import" href="../../bower_components/plastic-image/plastic-image.html">
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
+<script type="module" src="../../../@polymer/app-route/app-route.js"></script>
+<script type="module" src="../../../plastic-image/plastic-image.js"></script>
+<script type="module" src="../../../@polymer/paper-icon-button/paper-icon-button.js"></script>
+<script type="module" src="../../../@polymer/iron-icon/iron-icon.js"></script>
+<script type="module" src="../../../@polymer/paper-progress/paper-progress.js"></script>
 
-<link rel="import" href="../mixins/utils-functions.html">
-<link rel="import" href="../mixins/redux-mixin.html">
-<link rel="import" href="../elements/text-truncate.html">
-<link rel="import" href="../elements/shared-styles.html">
-<link rel="import" href="../elements/content-loader.html">
+<script type="module" src="../mixins/utils-functions.js"></script>
+<script type="module" src="../mixins/redux-mixin.js"></script>
+<script type="module" src="../elements/text-truncate.js"></script>
+<script type="module" src="../elements/shared-styles.js"></script>
+<script type="module" src="../elements/content-loader.js"></script>
 
 <dom-module id="speakers-page">
   <template>
@@ -242,67 +242,77 @@
 
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/app-route/app-route.js';
+import '../../../plastic-image/plastic-image.js';
+import '../../../@polymer/paper-icon-button/paper-icon-button.js';
+import '../../../@polymer/iron-icon/iron-icon.js';
+import '../../../@polymer/paper-progress/paper-progress.js';
+import '../mixins/utils-functions.js';
+import '../mixins/redux-mixin.js';
+import '../elements/text-truncate.js';
+import '../elements/shared-styles.js';
+import '../elements/content-loader.js';
 
-    // eslint-disable-next-line no-undef
-    class SpeakersPage extends UtilsFunctions(ReduxMixin(Polymer.Element)) {
-      static get is() {
-        return 'speakers-page';
-      }
+// eslint-disable-next-line no-undef
+class SpeakersPage extends UtilsFunctions(ReduxMixin(Element)) {
+  static get is() {
+    return 'speakers-page';
+  }
 
-      static get properties() {
-        return {
-          route: Object,
-          active: Boolean,
-          speakers: {
-            type: Object,
-            statePath: 'speakers',
-          },
-          isDialogOpened: {
-            type: Object,
-            statePath: 'dialogs.speaker.isOpened',
-          },
-          contentLoaderVisibility: {
-            type: String,
-            value: null,
-          },
-        };
-      }
+  static get properties() {
+    return {
+      route: Object,
+      active: Boolean,
+      speakers: {
+        type: Object,
+        statePath: 'speakers',
+      },
+      isDialogOpened: {
+        type: Object,
+        statePath: 'dialogs.speaker.isOpened',
+      },
+      contentLoaderVisibility: {
+        type: String,
+        value: null,
+      },
+    };
+  }
 
-      static get observers() {
-        return [
-          '_openSpeakerDetails(active, speakers, routeData.page)',
-          '_speakersChanged(speakers)',
-        ];
-      }
+  static get observers() {
+    return [
+      '_openSpeakerDetails(active, speakers, routeData.page)',
+      '_speakersChanged(speakers)',
+    ];
+  }
 
-      connectedCallback() {
-        super.connectedCallback();
-        if (!Object.keys(this.speakers).length) speakersActions.fetchList();
-      }
+  connectedCallback() {
+    super.connectedCallback();
+    if (!Object.keys(this.speakers).length) speakersActions.fetchList();
+  }
 
-      _speakersChanged() {
-        if (this.speakers && Object.keys(this.speakers).length) {
-          this.contentLoaderVisibility = 'hidden';
-        }
-      }
-
-      _openSpeakerDetails(active, speakers, id) {
-        if (active && speakers && Object.keys(speakers).length) {
-          requestAnimationFrame(() => {
-            if (id) {
-              const speakerData = speakers[id];
-              speakerData && dialogsActions.openDialog(DIALOGS.SPEAKER, speakerData);
-            } else if (this.isDialogOpened) {
-              dialogsActions.closeDialog(DIALOGS.SPEAKER);
-            }
-          });
-        }
-      }
+  _speakersChanged() {
+    if (this.speakers && Object.keys(this.speakers).length) {
+      this.contentLoaderVisibility = 'hidden';
     }
+  }
 
-    window.customElements.define(SpeakersPage.is, SpeakersPage);
+  _openSpeakerDetails(active, speakers, id) {
+    if (active && speakers && Object.keys(speakers).length) {
+      requestAnimationFrame(() => {
+        if (id) {
+          const speakerData = speakers[id];
+          speakerData && dialogsActions.openDialog(DIALOGS.SPEAKER, speakerData);
+        } else if (this.isDialogOpened) {
+          dialogsActions.closeDialog(DIALOGS.SPEAKER);
+        }
+      });
+    }
+  }
+}
 
-  </script>
+window.customElements.define(SpeakersPage.is, SpeakersPage);
+</script>
 </dom-module>
 

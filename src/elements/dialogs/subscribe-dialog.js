@@ -1,0 +1,244 @@
+import { Element } from '../../../../@polymer/polymer/polymer-element.js';
+import '../../../../@polymer/paper-button/paper-button.js';
+import '../../../../@polymer/paper-input/paper-input.js';
+import { IronOverlayBehavior } from '../../../../@polymer/iron-overlay-behavior/iron-overlay-behavior.js';
+import '../../mixins/redux-mixin.js';
+import '../shared-styles.js';
+import '../hoverboard-icons.js';
+import { mixinBehaviors } from '../../../../@polymer/polymer/lib/legacy/class.js';
+
+class SubscribeDialog extends ReduxMixin(
+  mixinBehaviors([IronOverlayBehavior], Element)
+) {
+  static get template() {
+    return `
+    <style is="custom-style" include="shared-styles flex flex-alignment"></style>
+
+    <style>
+      :host {
+        margin: 0;
+        display: block;
+        width: 85%;
+        max-width: 420px;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+
+        --paper-input-container-focus-color: var(--default-primary-color);
+        --paper-input-container-color: var(--secondary-text-color);
+      }
+
+      .dialog-header {
+        background: var(--default-primary-color);
+        padding: 38px 32px 20px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.5;
+        margin-bottom: 32px;
+      }
+
+      paper-input {
+        margin: 16px 32px;
+        height: 40px;
+      }
+
+      paper-input:first-of-type {
+        margin-top: 0;
+      }
+
+      .action-buttons {
+        padding: 0 12px;
+        margin-top: 16px;
+        height: 72px;
+      }
+
+      paper-button {
+        height: 48px;
+      }
+
+      .close-button {
+        color: var(--secondary-text-color);
+      }
+
+      .subscribe-button {
+        color: var(--dark-primary-color);
+      }
+
+      .subscribe-button:hover {
+        color: var(--focused-color);
+      }
+
+      .general-error {
+        color: var(--error-color);
+        margin: 0 32px;
+      }
+
+      @media (min-width: 640px) {
+
+        .action-buttons {
+          margin-top: 24px;
+        }
+
+        paper-input {
+          height: 56px;
+        }
+      }
+
+
+    </style>
+
+    <div class="dialog-content" layout="" vertical="">
+      <div class="dialog-header">[[title]]</div>
+      <div hidden\$="[[!errorOccurred]]" class="general-error">{\$ subscribeBlock.generalError \$}</div>
+      <paper-input id="firstFieldInput" on-touchend="_focus" label="[[firstFieldLabel]]" value="{{firstFieldValue}}" autocomplete="off" autofocus="false">
+      </paper-input>
+      <paper-input id="secondFieldInput" on-touchend="_focus" label="[[secondFieldLabel]]" value="{{secondFieldValue}}" autocomplete="off" autofocus="false">
+      </paper-input>
+      <paper-input id="emailInput" on-touchend="_focus" label="{\$ subscribeBlock.emailAddress \$} *" value="{{email}}" required="" auto-validate\$="[[validate]]" error-message="{\$ subscribeBlock.emailRequired \$}" autocomplete="off" autofocus="false">
+      </paper-input>
+      <div class="action-buttons" layout="" horizontal="" justified="">
+        <paper-button class="close-button" on-tap="_closeDialog">{\$ subscribeBlock.close \$}
+        </paper-button>
+
+        <paper-button class="subscribe-button" on-tap="_subscribe" ga-on="click" ga-event-category="attendees" ga-event-action="subscribe" ga-event-label="subscribe block">
+         [[submitLabel]]
+        </paper-button>
+      </div>
+
+    </div>
+`;
+  }
+
+  static get is() {
+    return 'subscribe-dialog';
+  }
+
+  static get properties() {
+    return {
+      ui: {
+        type: Object,
+        statePath: 'ui',
+      },
+      subscribed: {
+        type: Boolean,
+        statePath: 'subscribed',
+      },
+      validate: {
+        type: Boolean,
+        value: true,
+      },
+      errorOccurred: {
+        type: Boolean,
+        value: false,
+      },
+      keyboardOpened: {
+        type: Boolean,
+        value: false,
+      },
+      secondFieldValue: String,
+      firstFieldValue: String,
+      initialHeight: Number,
+      title: String,
+      submitLabel: String,
+      firstFieldLabel: String,
+      secondFieldLabel: String,
+    };
+  }
+
+  static get observers() {
+    return [
+      '_handleDialogToggled(opened, data)',
+      '_handleSubscribed(subscribed)',
+    ];
+  }
+
+  ready() {
+    super.ready();
+    this.initialHeight = window.innerHeight;
+  }
+
+  constructor() {
+    super();
+    this.addEventListener('iron-overlay-canceled', this._close);
+    this.addEventListener('iron-resize', this._resize);
+    window.addEventListener('resize', this._windowResize.bind(this));
+  }
+
+  _close() {
+    dialogsActions.closeDialog(DIALOGS.SUBSCRIBE);
+  }
+
+  _handleSubscribed(subscribed) {
+    if (subscribed) {
+      this._closeDialog();
+    }
+  }
+
+  _handleDialogToggled(opened, data) {
+    if (data) {
+      this.errorOccurred = data.errorOccurred;
+    }
+
+    this.title = data.title || '{$ subscribeBlock.formTitle $}';
+    this.submitLabel = data.submitLabel || ' {$ subscribeBlock.subscribe $}';
+    this.firstFieldLabel = data.firstFieldLabel || '{$ subscribeBlock.firstName $}';
+    this.secondFieldLabel = data.secondFieldLabel || '{$ subscribeBlock.lastName $}';
+    this._prefillFields(data);
+  }
+
+  _subscribe() {
+    const emailInput = this.shadowRoot.querySelector('#emailInput');
+    if (emailInput.validate()) {
+      this.data.submit({
+        email: this.email,
+        firstFieldValue: this.firstFieldValue,
+        secondFieldValue: this.secondFieldValue,
+      });
+    }
+  }
+
+  _closeDialog() {
+    dialogsActions.closeDialog(DIALOGS.SUBSCRIBE);
+  }
+
+  _prefillFields(userData) {
+    this.validate = false;
+    const firstField = this.shadowRoot.querySelector('#firstFieldInput');
+    const secondField = this.shadowRoot.querySelector('#secondFieldInput');
+    const emailInput = this.shadowRoot.querySelector('#emailInput');
+    firstField.value = userData ? userData.firstFieldValue : '';
+    secondField.value = userData ? userData.secondFieldValue : '';
+    firstField.focus();
+    firstField.blur();
+    secondField.focus();
+    secondField.blur();
+    emailInput.blur();
+    emailInput.value = '';
+    emailInput.invalid = false;
+    this.validate = true;
+  }
+
+  _focus(e) {
+    e.target.focus();
+  }
+
+  _windowResize() {
+    this.keyboardOpened = this.ui.viewport.isPhone &&
+      window.innerHeight < this.initialHeight - 100;
+  }
+
+  _resize(e) {
+    if (this.keyboardOpened) {
+      const header = this.shadowRoot.querySelector('.dialog-header');
+      const headerHeight = header.offsetHeight;
+
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          this.style.maxHeight = `${this.initialHeight}px`;
+          this.style.top = `-${headerHeight}px`;
+        });
+      }, 10);
+    }
+  }
+}
+
+window.customElements.define(SubscribeDialog.is, SubscribeDialog);

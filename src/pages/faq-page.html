@@ -1,7 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/marked-element/marked-element.html">
-<link rel="import" href="../elements/shared-styles.html">
-<link rel="import" href="../mixins/scroll-functions.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
+<script type="module" src="../../../@polymer/marked-element/marked-element.js"></script>
+<script type="module" src="../elements/shared-styles.js"></script>
+<script type="module" src="../mixins/scroll-functions.js"></script>
 
 <dom-module id="faq-page">
   <template>
@@ -101,86 +101,90 @@
     <footer-block></footer-block>
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/marked-element/marked-element.js';
+import '../elements/shared-styles.js';
+import '../mixins/scroll-functions.js';
 
-    // eslint-disable-next-line no-undef
-    class FaqPage extends ScrollFunctions(Polymer.Element) {
-      static get is() {
-        return 'faq-page';
+// eslint-disable-next-line no-undef
+class FaqPage extends ScrollFunctions(Element) {
+  static get is() {
+    return 'faq-page';
+  }
+
+  static get properties() {
+    return {
+      active: Boolean,
+      path: {
+        type: String,
+        value: '{$ faq $}',
+      },
+      source: String,
+      self: Object,
+    };
+  }
+
+  ready() {
+    super.ready();
+    this.self = this;
+    this._setFileContentSource();
+    this.addEventListener('marked-render-complete', this._renderContent);
+  }
+
+  constructor() {
+    super();
+    this._scrollToFaqChapter = this._scrollToFaqChapter.bind(this);
+  }
+
+  _renderContent() {
+    const heads = this.shadowRoot.querySelectorAll('.markdown-text h3');
+    const contentDom = this.shadowRoot.querySelector('.content');
+    let lastHeadElement;
+
+    for (let i = 0; i < heads.length; i++) {
+      if (heads[i].previousElementSibling.nodeName === 'H2') {
+        const head2Element = heads[i].previousElementSibling;
+        const colHeader = document.createElement('div');
+        colHeader.className = `col ${head2Element.id}`;
+        colHeader.textContent = head2Element.textContent;
+        contentDom.appendChild(colHeader);
+        lastHeadElement = colHeader;
       }
 
-      static get properties() {
-        return {
-          active: Boolean,
-          path: {
-            type: String,
-            value: '{$ faq $}',
-          },
-          source: String,
-          self: Object,
-        };
-      }
-
-      ready() {
-        super.ready();
-        this.self = this;
-        this._setFileContentSource();
-        this.addEventListener('marked-render-complete', this._renderContent);
-      }
-
-      constructor() {
-        super();
-        this._scrollToFaqChapter = this._scrollToFaqChapter.bind(this);
-      }
-
-      _renderContent() {
-        const heads = this.shadowRoot.querySelectorAll('.markdown-text h3');
-        const contentDom = this.shadowRoot.querySelector('.content');
-        let lastHeadElement;
-
-        for (let i = 0; i < heads.length; i++) {
-          if (heads[i].previousElementSibling.nodeName === 'H2') {
-            const head2Element = heads[i].previousElementSibling;
-            const colHeader = document.createElement('div');
-            colHeader.className = `col ${head2Element.id}`;
-            colHeader.textContent = head2Element.textContent;
-            contentDom.appendChild(colHeader);
-            lastHeadElement = colHeader;
-          }
-
-          const colContent = document.createElement('a');
-          colContent.className = 'col-content';
-          colContent.href = `#${heads[i].id}`;
-          colContent.textContent = heads[i].textContent;
-          colContent.addEventListener('click', this._scrollToFaqChapter);
-          lastHeadElement.appendChild(colContent);
-        }
-
-        const contentWrapper = this.shadowRoot.querySelector('.content-wrapper');
-        contentWrapper.classList.add('visible');
-      }
-
-      _setFileContentSource() {
-        firebase.storage()
-          .ref(this.path)
-          .getDownloadURL()
-          .then((url) => {
-            this.source = url;
-          })
-          .catch((error) => {
-            // eslint-disable-next-line no-console
-            console.error(`Error occurred during getting file ${this.path} from storage: ${error}`);
-          });
-      }
-
-      _scrollToFaqChapter(e) {
-        e.preventDefault();
-        var elementIdToScroll = e.target.getAttribute('href');
-        var element = this.shadowRoot.querySelector(elementIdToScroll);
-        this.scrollToY(element.getBoundingClientRect().top - 100, 1500, 'easeInOutSine');
-      }
+      const colContent = document.createElement('a');
+      colContent.className = 'col-content';
+      colContent.href = `#${heads[i].id}`;
+      colContent.textContent = heads[i].textContent;
+      colContent.addEventListener('click', this._scrollToFaqChapter);
+      lastHeadElement.appendChild(colContent);
     }
 
-    window.customElements.define(FaqPage.is, FaqPage);
-  </script>
+    const contentWrapper = this.shadowRoot.querySelector('.content-wrapper');
+    contentWrapper.classList.add('visible');
+  }
+
+  _setFileContentSource() {
+    firebase.storage()
+      .ref(this.path)
+      .getDownloadURL()
+      .then((url) => {
+        this.source = url;
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(`Error occurred during getting file ${this.path} from storage: ${error}`);
+      });
+  }
+
+  _scrollToFaqChapter(e) {
+    e.preventDefault();
+    var elementIdToScroll = e.target.getAttribute('href');
+    var element = this.shadowRoot.querySelector(elementIdToScroll);
+    this.scrollToY(element.getBoundingClientRect().top - 100, 1500, 'easeInOutSine');
+  }
+}
+
+window.customElements.define(FaqPage.is, FaqPage);
+</script>
 </dom-module>

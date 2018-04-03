@@ -1,18 +1,18 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<script type="module" src="../../../@polymer/polymer/polymer-element.js"></script>
 
-<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<script type="module" src="../../../@polymer/iron-icon/iron-icon.js"></script>
 
-<link rel="import" href="../elements/about-block.html">
-<link rel="import" href="../elements/speakers-block.html">
-<link rel="import" href="../elements/latest-posts-block.html">
-<link rel="import" href="../elements/tickets-block.html">
-<link rel="import" href="../elements/partners-block.html">
-<link rel="import" href="../elements/featured-videos.html">
-<link rel="import" href="../elements/subscribe-block.html">
-<link rel="import" href="../elements/gallery-block.html">
-<link rel="import" href="../elements/map-block.html">
-<link rel="import" href="../elements/about-organizer-block.html">
-<link rel="import" href="../mixins/scroll-functions.html">
+<script type="module" src="../elements/about-block.js"></script>
+<script type="module" src="../elements/speakers-block.js"></script>
+<script type="module" src="../elements/latest-posts-block.js"></script>
+<script type="module" src="../elements/tickets-block.js"></script>
+<script type="module" src="../elements/partners-block.js"></script>
+<script type="module" src="../elements/featured-videos.js"></script>
+<script type="module" src="../elements/subscribe-block.js"></script>
+<script type="module" src="../elements/gallery-block.js"></script>
+<script type="module" src="../elements/map-block.js"></script>
+<script type="module" src="../elements/about-organizer-block.js"></script>
+<script type="module" src="../mixins/scroll-functions.js"></script>
 
 <dom-module id="home-page">
   <template>
@@ -170,43 +170,55 @@
     <footer-block></footer-block>
   </template>
 
-  <script>
+  <script type="module">
+import { Element } from '../../../@polymer/polymer/polymer-element.js';
+import '../../../@polymer/iron-icon/iron-icon.js';
+import '../elements/about-block.js';
+import '../elements/speakers-block.js';
+import '../elements/latest-posts-block.js';
+import '../elements/tickets-block.js';
+import '../elements/partners-block.js';
+import '../elements/featured-videos.js';
+import '../elements/subscribe-block.js';
+import '../elements/gallery-block.js';
+import '../elements/map-block.js';
+import '../elements/about-organizer-block.js';
+import '../mixins/scroll-functions.js';
 
+// eslint-disable-next-line no-undef
+class HomePage extends ScrollFunctions(Element) {
+  static get is() {
+    return 'home-page';
+  }
+
+  static get properties() {
+    return {
+      active: Boolean,
+    };
+  }
+
+  _playVideo() {
+    uiActions.toggleVideoDialog({
+      title: '{$  aboutBlock.callToAction.howItWas.title $}',
+      youtubeId: '{$  aboutBlock.callToAction.howItWas.youtubeId $}',
+      disableControls: true,
+      opened: true,
+    });
+  }
+
+  _scrollToTickets() {
     // eslint-disable-next-line no-undef
-    class HomePage extends ScrollFunctions(Polymer.Element) {
-      static get is() {
-        return 'home-page';
-      }
+    const ticketsBlockPositionY = HOVERBOARD.Elements.Tickets.getBoundingClientRect().top - 128;
+    this.scrollToY(ticketsBlockPositionY, 600, 'easeInOutSine');
+  }
 
-      static get properties() {
-        return {
-          active: Boolean,
-        };
-      }
+  _scrollNextBlock() {
+    const heroHeight = this.$.hero.getBoundingClientRect().height - 64;
+    this.scrollToY(heroHeight, 600, 'easeInOutSine');
+  }
+}
 
-      _playVideo() {
-        uiActions.toggleVideoDialog({
-          title: '{$  aboutBlock.callToAction.howItWas.title $}',
-          youtubeId: '{$  aboutBlock.callToAction.howItWas.youtubeId $}',
-          disableControls: true,
-          opened: true,
-        });
-      }
-
-      _scrollToTickets() {
-        // eslint-disable-next-line no-undef
-        const ticketsBlockPositionY = HOVERBOARD.Elements.Tickets.getBoundingClientRect().top - 128;
-        this.scrollToY(ticketsBlockPositionY, 600, 'easeInOutSine');
-      }
-
-      _scrollNextBlock() {
-        const heroHeight = this.$.hero.getBoundingClientRect().height - 64;
-        this.scrollToY(heroHeight, 600, 'easeInOutSine');
-      }
-    }
-
-    window.customElements.define(HomePage.is, HomePage);
-
-  </script>
+window.customElements.define(HomePage.is, HomePage);
+</script>
 </dom-module>
 
