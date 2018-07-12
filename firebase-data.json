@@ -720,32 +720,6 @@
       } ],
       "title" : "Technology Evangelist"
     },
-    "john_paul_ada" : {
-      "bio" : "I'm a software engineer working with JavaScript and PHP to build websites and mobile apps at GAPLabs. I play around with data science and machine learning on my free time.",
-      "company" : "GAPLabs",
-      "companyLogo" : "",
-      "companyLogoUrl" : "",
-      "country" : "Philippines",
-      "featured" : true,
-      "name" : "John Paul Ada",
-      "photo" : "/images/people/john_paul_ada.jpg",
-      "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Fjohn_paul_ada.jpg?alt=media&token=97bfeb1b-dbee-4e5e-bfb8-0c1be146e48d",
-      "shortBio" : "I'm a software engineer working with JavaScript and PHP to build websites and mobile apps at GAPLabs. I play around with data science and machine learning on my free time.",
-      "socials" : [ {
-        "icon" : "facebook",
-        "link" : "https://www.facebook.com/jepe.ada",
-        "name" : "Facebook"
-      }, {
-        "icon" : "github",
-        "link" : "https://github.com/johnpaulada",
-        "name" : "GitHub"
-      }, {
-        "icon": "linkedin",
-        "link": "https://www.linkedin.com/in/john-paul-ada/",
-        "name": "LinkedIn"
-      } ],
-      "title" : "Software Engineer"
-    },
     "franchette_camoro" : {
       "badges" : [ {
         "description" : "Google Developers Group Cebu",
@@ -860,6 +834,47 @@
         "name" : "GitHub"
       } ],
       "title" : "Android Developer"
+    },
+    "shad_roi" : {
+      "badges" : [ {
+        "description" : "Google Developers Group Cebu",
+        "link" : "https://gdgcebu.org/",
+        "name" : "gdg"
+      } ],
+      "bio" : "Shad is the Community Manager of GDG Cebu and is the key person in organizing all of GDG Cebu’s events. He is also a marketing expert and also handles special operations at Symph.",
+      "company" : "Symph",
+      "companyLogo" : "",
+      "companyLogoUrl" : "",
+      "country" : "Philippines",
+      "featured" : true,
+      "name" : "Shad Roi de la Cruz",
+      "photo" : "/images/people/shad_roi.jpg",
+      "photoUrl" : "",
+      "shortBio" : "",
+      "socials" : [ {
+        "icon" : "github",
+        "link" : "https://github.com/shadroi",
+        "name" : "GitHub"
+      } ],
+      "title" : "Community Manager of GDG Cebu"
+    },
+    "johnny_benitez" : {
+      "bio" : "Johnny is a Google Cloud Solutions Engineer covering APAC. He has been working with a number of enterprise customers across Asia-Pacific for the past 17 years with various technologies such as web application development, collaboration technologies and even enterprise search.<br><br>With over 17 years in IT industry has been passionate about getting customers on to the cloud in order to help IT teams be more agile and help businesses focus on becoming more productive and speed up innovation.",
+      "company" : "Google",
+      "companyLogo" : "",
+      "companyLogoUrl" : "",
+      "country" : "Philippines",
+      "featured" : true,
+      "name" : "Johnny Benitez",
+      "photo" : "/images/people/johnny_benitez.jpg",
+      "photoUrl" : "",
+      "shortBio" : "",
+      "socials" : [ {
+        "icon" : "linkedin",
+        "link" : "https://www.linkedin.com/in/johnny-benitez-7a2347",
+        "name" : "LinkedIn"
+      } ],
+      "title" : "Google Cloud Solutions Specialist"
     },
     "emmanuel_lodovice" : {
       "badges" : [ {
