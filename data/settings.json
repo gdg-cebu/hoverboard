@@ -23,6 +23,11 @@
       "title": "Home"
     },
     {
+      "route": "schedule",
+      "permalink": "/schedule/",
+      "title": "Schedule"
+    },
+    {
       "route": "speakers",
       "permalink": "/speakers/",
       "title": "Speakers"
