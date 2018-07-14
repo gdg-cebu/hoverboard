@@ -43,7 +43,7 @@
           display: grid;
           grid-column-gap: 16px;
           grid-row-gap: 32px;
-          grid-template-columns: repeat(3, 1fr);
+          /*grid-template-columns: repeat(3, 1fr);*/
         }
 
         .start-time {
@@ -75,7 +75,7 @@
 
           <div
             class="session"
-            style$="grid-area: [[session.gridArea]]" 
+            style$="grid-area: [[session.gridArea]]"
             layout vertical>
             <template is="dom-repeat" items="[[session.items]]" as="subSession">
               <session-element
