@@ -150,106 +150,89 @@
     "2018-07-21" : {
       "dateReadable" : "July 21",
       "timeslots" : [ {
-        "endTime" : "10:00",
+        "endTime" : "09:00",
         "sessions" : [ {
-          "items" : [ 132 ]
+          "items" : [ 101 ]
+        } ],
+        "startTime" : "07:00"
+      }, {
+        "endTime" : "09:30",
+        "sessions" : [ {
+          "items" : [ 102 ]
         } ],
         "startTime" : "09:00"
       }, {
-        "endTime" : "10:15",
+        "endTime" : "10:00",
         "sessions" : [ {
-          "items" : [ 136 ]
+          "items" : [ 103 ]
+        } ],
+        "startTime" : "09:30"
+      }, {
+        "endTime" : "10:40",
+        "sessions" : [ {
+          "items" : [ 104 ]
         } ],
         "startTime" : "10:00"
       }, {
-        "endTime" : "11:00",
-        "sessions" : [ {
-          "items" : [ 139 ]
-        } ],
-        "startTime" : "10:15"
-      }, {
-        "endTime" : "11:40",
-        "sessions" : [ {
-          "items" : [ 103, 112 ]
-        }, {
-          "items" : [ 120 ]
-        }, {
-          "extend" : 3,
-          "items" : [ 109 ]
-        } ],
-        "startTime" : "11:00"
-      }, {
-        "endTime" : "12:30",
-        "sessions" : [ {
-          "items" : [ 129 ]
-        }, {
-          "items" : [ 116 ]
-        } ],
-        "startTime" : "11:50"
-      }, {
-        "endTime" : "14:00",
-        "sessions" : [ {
-          "items" : [ 133 ]
-        } ],
-        "startTime" : "12:30"
-      }, {
-        "endTime" : "14:40",
-        "sessions" : [ {
-          "items" : [ 101 ]
-        }, {
-          "items" : [ 118 ]
-        }, {
-          "extend" : 2,
-          "items" : [ 107 ]
-        } ],
-        "startTime" : "14:00"
-      }, {
-        "endTime" : "15:30",
-        "sessions" : [ {
-          "items" : [ 140 ]
-        }, {
-          "items" : [ 126 ]
-        } ],
-        "startTime" : "14:50"
-      }, {
-        "endTime" : "16:00",
-        "sessions" : [ {
-          "items" : [ 134 ]
-        } ],
-        "startTime" : "15:30"
-      }, {
-        "endTime" : "16:40",
+        "endTime" : "11:20",
         "sessions" : [ {
           "items" : [ 105 ]
-        }, {
-          "items" : [ 127 ]
-        }, {
-          "extend" : 3,
-          "items" : [ 119 ]
         } ],
-        "startTime" : "16:00"
+        "startTime" : "10:40"
       }, {
-        "endTime" : "17:30",
-        "sessions" : [ {
-          "items" : [ 112 ]
-        }, {
-          "items" : [ 111 ]
-        } ],
-        "startTime" : "16:50"
-      }, {
-        "endTime" : "18:20",
+        "endTime" : "12:00",
         "sessions" : [ {
           "items" : [ 106 ]
-        }, {
-          "items" : [ 125 ]
         } ],
-        "startTime" : "17:40"
+        "startTime" : "11:20"
       }, {
-        "endTime" : "22:30",
+        "endTime" : "13:00",
         "sessions" : [ {
-          "items" : [ 137 ]
+          "items" : [ 107 ]
         } ],
-        "startTime" : "18:30"
+        "startTime" : "12:00"
+      }, {
+        "endTime" : "13:40",
+        "sessions" : [ {
+          "items" : [ 108 ]
+        } ],
+        "startTime" : "13:00"
+      }, {
+        "endTime" : "14:20",
+        "sessions" : [ {
+          "items" : [ 109 ]
+        } ],
+        "startTime" : "13:40"
+      }, {
+        "endTime" : "15:00",
+        "sessions" : [ {
+          "items" : [ 110 ]
+        } ],
+        "startTime" : "14:20"
+      }, {
+        "endTime" : "15:40",
+        "sessions" : [ {
+          "items" : [ 111 ]
+        } ],
+        "startTime" : "15:00"
+      }, {
+        "endTime" : "16:20",
+        "sessions" : [ {
+          "items" : [ 112 ]
+        } ],
+        "startTime" : "15:40"
+      }, {
+        "endTime" : "17:00",
+        "sessions" : [ {
+          "items" : [ 113 ]
+        } ],
+        "startTime" : "16:20"
+      }, {
+        "endTime" : "17:20",
+        "sessions" : [ {
+          "items" : [ 114 ]
+        } ],
+        "startTime" : "17:00"
       } ],
       "tracks" : [ {
         "title" : "Richartz Hall"
@@ -257,7 +240,18 @@
     }
   },
   "sessions" : {
-    "101" : {
+    "101": {
+      "language" : "English",
+      "tags" : [ ],
+      "title" : "Registration"
+    },
+    "102": {
+      "language" : "English",
+      "speakers" : [ ],
+      "tags" : [ ],
+      "title" : "Opening Remarks"
+    },
+    "103" : {
       "complexity" : "Beginner",
       "description" : "",
       "language" : "English",
@@ -266,24 +260,14 @@
       "tags" : [ "Keynote" ],
       "title" : "I/O Extended 2018 Keynote"
     },
-    "102" : {
-      "complexity" : "Beginner",
+    "104": {
       "description" : "",
       "language" : "English",
-      "speakers" : [ "johnny_benitez" ],
-      "tags" : [ "Cloud" ],
-      "title" : "Google Cloud Platform 101"
+      "speakers" : [ ],
+      "tags" : [ "Forum" ],
+      "title" : "I/O Recap Open Forum with Google I/O 2018 Attendees"
     },
-    "103" : {
-      "complexity" : "Intermediate",
-      "description" : "",
-      "language" : "English",
-      "presentation" : "",
-      "speakers" : [ "albert_padin" ],
-      "tags" : [ "Machine Learning", "Web" ],
-      "title" : "TensorFlow for Web"
-    },
-    "104" : {
+    "105" : {
       "complexity" : "Intermediate",
       "description" : "",
       "language" : "English",
@@ -292,7 +276,20 @@
       "tags" : [ "Web" ],
       "title" : "State of Web: Webcomponents, Performance, and Making the Web Fast Again"
     },
-    "105" : {
+    "106" : {
+      "complexity" : "Beginner",
+      "description" : "",
+      "language" : "English",
+      "presentation": "",
+      "speakers" : [ "johnny_benitez" ],
+      "tags" : [ "Cloud" ],
+      "title" : "Google Cloud Platform 101"
+    },
+    "107": {
+      "tags" : [ ],
+      "title" : "Lunch Break"
+    },
+    "108" : {
       "complexity" : "Beginner",
       "description" : "",
       "language" : "English",
@@ -301,7 +298,7 @@
       "tags" : [ "Web", "Firebase" ],
       "title" : "What’s New With Firebase for Web and Mobile"
     },
-    "106" : {
+    "109" : {
       "complexity" : "Beginner",
       "description" : "",
       "language" : "English",
@@ -310,15 +307,7 @@
       "tags" : [ "Assistant" ],
       "title" : "Actions on Google: Build Engaging Conversations for the Google Assistant Using DialogFlow"
     },
-    "107" : {
-      "complexity" : "Beginner",
-      "description" : "",
-      "language" : "English",
-      "speakers" : [ "arnelle_balane" ],
-      "tags" : [ "Web" ],
-      "title" : "Build the Future of the Web with Modern Javascript"
-    },
-    "108" : {
+    "110" : {
       "complexity" : "Intermediate",
       "description" : "",
       "language" : "English",
@@ -326,6 +315,37 @@
       "speakers" : [ "arth_lim_chiu" ],
       "tags" : [ "Android" ],
       "title" : "Modern Android Development: Android Jetpack, Kotlin and More"
+    },
+    "111" : {
+      "complexity" : "Beginner",
+      "description" : "",
+      "language" : "English",
+      "speakers" : [ "arnelle_balane" ],
+      "tags" : [ "Web" ],
+      "title" : "Build the Future of the Web with Modern Javascript"
+    },
+    "112" : {
+      "complexity" : "Intermediate",
+      "description" : "",
+      "language" : "English",
+      "presentation" : "",
+      "speakers" : [ "albert_padin" ],
+      "tags" : [ "Machine Learning", "Web" ],
+      "title" : "TensorFlow for Web"
+    },
+    "113" : {
+      "complexity" : "Beginner",
+      "description" : "",
+      "language" : "English",
+      "speakers" : [ ],
+      "tags" : [ "Forum" ],
+      "title" : "Open Forum and Q&A: Advances in Web, Mobile, and Machine Learning"
+    },
+    "114" : {
+      "language" : "English",
+      "speakers" : [ ],
+      "tags" : [ ],
+      "title" : "Closing Remarks"
     }
   },
   "speakers" : {
