@@ -366,7 +366,7 @@
         "link" : "https://gdgcebu.org/",
         "name" : "gdg"
       } ],
-      "bio" : "Fullstack Developer at Symph.",
+      "bio" : "Franchette is a Fullstack developer at Symph and also the Creatives for GDG Cebu. She loves all things web and likes to work with different APIs. When she’s not coding, she likes to do yoga and watch cat videos.",
       "company" : "Symph",
       "companyLogo" : "/images/gdg-cebu.png",
       "companyLogoUrl" : "/images/gdg-cebu.png",
@@ -374,8 +374,8 @@
       "featured" : true,
       "name" : "Franchette Camoro",
       "photo" : "/images/people/franchette_camoro.jpg",
-      "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Ffranchette_camoro.jpg?alt=media&token=fa2e735f-0084-4d4c-b01e-e1825d027a53",
-      "shortBio" : "Fullstack Developer at Symph.",
+      "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Ffranchette_camoro.jpg?alt=media&token=b9aa53ca-655a-4503-8615-757411a2282d",
+      "shortBio" : "Franchette is a Fullstack developer at Symph and also the Creatives for GDG Cebu.",
       "socials" : [ {
         "icon" : "twitter",
         "link" : "https://twitter.com/franchette_meow",
@@ -454,7 +454,7 @@
       "title" : "Assistant Professor"
     },
     "arth_lim_chiu" : {
-      "bio" : "",
+      "bio" : "Arth is an Android developer at Symph. He loves to tinker around with open-source Android libraries. His primary focus right now is Kotlin and how he can build apps with it.",
       "company" : "Symph",
       "companyLogo" : "/images/gdg-cebu.png",
       "companyLogoUrl" : "/images/gdg-cebu.png",
@@ -463,7 +463,7 @@
       "name" : "Arth Limchiu",
       "photo" : "/images/people/arth_lim_chiu.jpg",
       "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Farth_lim_chiu.jpg?alt=media&token=c9963d3e-285e-4013-a7a7-b0bf8dbcdabd",
-      "shortBio" : "",
+      "shortBio" : "Arth is an Android developer at Symph. He loves to tinker around with open-source Android libraries.",
       "socials" : [ {
         "icon" : "linkedin",
         "link" : "https://www.linkedin.com/in/arthlimchiu/",
@@ -489,8 +489,8 @@
       "featured" : true,
       "name" : "Shad Roi de la Cruz",
       "photo" : "/images/people/shad_roi.jpg",
-      "photoUrl" : "",
-      "shortBio" : "",
+      "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Fshad_roi.jpg?alt=media&token=d6732af7-5c33-4e70-9ede-0a5ea431cca4",
+      "shortBio" : "Shad is the Community Manager of GDG Cebu and is the key person in organizing all of GDG Cebu’s events.",
       "socials" : [ {
         "icon" : "github",
         "link" : "https://github.com/shadroi",
@@ -507,8 +507,8 @@
       "featured" : true,
       "name" : "Johnny Benitez",
       "photo" : "/images/people/johnny_benitez.jpg",
-      "photoUrl" : "",
-      "shortBio" : "",
+      "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Fjohnny_benitez.jpg?alt=media&token=c78bdd84-dab6-4b81-86eb-bfbcd53a82d3",
+      "shortBio" : "Johnny is a Google Cloud Solutions Engineer covering APAC.",
       "socials" : [ {
         "icon" : "linkedin",
         "link" : "https://www.linkedin.com/in/johnny-benitez-7a2347",
@@ -522,7 +522,7 @@
         "link" : "https://gdgcebu.org/",
         "name" : "gdg"
       } ],
-      "bio" : "",
+      "bio" : "Emmanuel is a Computer Science graduate of UP Cebu. Now working as a Lead Web Developer at ChannelFix, Emman enjoys building websites, solving problems and trying new technologies. He works primarily on backend using Python and Django. He also taught a web engineering class at the University of the Philippines Cebu.",
       "company" : "ChannelFix",
       "companyLogo" : "/images/gdg-cebu.png",
       "companyLogoUrl" : "/images/gdg-cebu.png",
@@ -531,7 +531,7 @@
       "name" : "Emmanuel Lodovice",
       "photo" : "/images/people/emmanuel_lodovice.jpg",
       "photoUrl" : "https://pbs.twimg.com/profile_images/952939888843751424/8Hout5lg_400x400.jpg",
-      "shortBio" : "",
+      "shortBio" : "Emmanuel is a Computer Science graduate of UP Cebu, now working as a Lead Web Developer at ChannelFix.",
       "socials" : [ {
         "icon" : "github",
         "link" : "https://github.com/emanlodovice",
@@ -553,7 +553,7 @@
         "link" : "https://gdgcebu.org/",
         "name" : "gdg"
       } ],
-      "bio" : "",
+      "bio" : "Arnelle is a Computer Science graduate of UP Cebu. Now working as a Web Developer at ChannelFix, Arnelle enjoys exploring new Web technologies, and building random things with them. He works primarily on frontend with JavaScript. He also taught a web engineering class at the University of the Philippines Cebu.",
       "company" : "ChannelFix",
       "companyLogo" : "/images/gdg-cebu.png",
       "companyLogoUrl" : "/images/gdg-cebu.png",
@@ -562,7 +562,7 @@
       "name" : "Arnelle Balane",
       "photo" : "/images/people/arnelle_balane.jpg",
       "photoUrl" : "https://avatars0.githubusercontent.com/u/1428598?s=460&v=4",
-      "shortBio" : "",
+      "shortBio" : "Arnelle is a Computer Science graduate of UP Cebu, now working as a Web Developer at ChannelFix.",
       "socials" : [ {
         "icon" : "github",
         "link" : "https://github.com/arnellebalane",
