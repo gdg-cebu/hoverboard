@@ -4,12 +4,12 @@
   "analytics": "UA-82202527-10",
   "prefix": "",
   "firebase": {
-    "apiKey": "AIzaSyDt15L4WIAOlSaiXUtaJVDHhf0ptT17lJo",
-    "authDomain": "ioxcebu18-dev.firebaseapp.com",
-    "databaseURL": "https://ioxcebu18-dev.firebaseio.com",
-    "projectId": "ioxcebu18-dev",
-    "storageBucket": "ioxcebu18-dev.appspot.com",
-    "messagingSenderId": "57095752324"
+    "apiKey": "AIzaSyCis7inogDQvHLHLCeQUaPNTQ2XxW5rePU",
+    "authDomain": "ioxcebu18.firebaseapp.com",
+    "databaseURL": "https://ioxcebu18.firebaseio.com",
+    "projectId": "ioxcebu18",
+    "storageBucket": "ioxcebu18.appspot.com",
+    "messagingSenderId": "800376658312"
   },
   "googleMapApiKey": "AIzaSyDt15L4WIAOlSaiXUtaJVDHhf0ptT17lJo"
 }
