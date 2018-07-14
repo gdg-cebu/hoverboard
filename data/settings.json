@@ -99,20 +99,20 @@
   },
   "location": {
     "label": "Location",
-    "name": "Oakridge Pavilion",
-    "city": "Mandaue City",
-    "short": "Mandaue City, Cebu",
-    "address": "AS Fortuna St., Banilad, Mandaue City, Cebu",
+    "name": "Richartz Hall, USC Talamban",
+    "city": "Cebu City",
+    "short": "Cebu City, Cebu",
+    "address": "Gov. M. Cuenco Ave., Cebu City, Cebu",
     "pointer": {
-      "latitude": 10.342389,
-      "longitude": 123.9170573,
-      "zoom": 17
+      "latitude": 10.3532943,
+      "longitude": 123.9077579,
+      "zoom": 15
     },
     "mapCenter": {
-      "latitude": 10.342389,
-      "longitude": 123.9170573
+      "latitude": 10.3532943,
+      "longitude": 123.9077579
     },
-    "description": "A premier event venue in Cebu, the 1,200- square meter Pavilion opens a multitude of possibilities."
+    "description": "Richartz Hall, USC Talamban"
   },
   "mediaQueries": {
     "xs": {
