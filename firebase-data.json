@@ -474,16 +474,16 @@
       "title" : "Assistant Professor"
     },
     "arth_lim_chiu" : {
-      "bio" : "Arth is an Android developer at Symph. He loves to tinker around with open-source Android libraries. His primary focus right now is Kotlin and how he can build apps with it.",
-      "company" : "Symph",
-      "companyLogo" : "/images/gdg-cebu.png",
-      "companyLogoUrl" : "/images/gdg-cebu.png",
+      "bio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials.",
+      "company" : "",
+      "companyLogo" : "",
+      "companyLogoUrl" : "",
       "country" : "Philippines",
       "featured" : true,
       "name" : "Arth Limchiu",
       "photo" : "/images/people/arth_lim_chiu.jpg",
       "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Farth_lim_chiu.jpg?alt=media&token=c9963d3e-285e-4013-a7a7-b0bf8dbcdabd",
-      "shortBio" : "Arth is an Android developer at Symph. He loves to tinker around with open-source Android libraries.",
+      "shortBio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials.",
       "socials" : [ {
         "icon" : "linkedin",
         "link" : "https://www.linkedin.com/in/arthlimchiu/",
@@ -492,6 +492,10 @@
         "icon" : "github",
         "link" : "https://github.com/arthlimchiu",
         "name" : "GitHub"
+      }, {
+        "icon" : "website",
+        "link" : "http://imakeanapp.com/",
+        "name" : "Blog"
       } ],
       "title" : "Android Developer"
     },
