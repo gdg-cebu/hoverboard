@@ -145,6 +145,28 @@
       "url" : "https://www.google.com.ua/intl/en/about/"
     } ],
     "title" : "General Partner"
+  }, {
+    "logos": [ {
+      "logoUrl" : "../images/logos/partners/usc.png",
+      "name" : "University of San Carlos",
+      "url" : ""
+    } ],
+    "title" : "In cooperation with"
+  }, {
+    "logos" : [ {
+      "logoUrl" : "../images/logos/partners/cdn.jpg",
+      "name" : "Cebu Daily News",
+      "url" : ""
+    }, {
+      "logoUrl" : "../images/logos/partners/prworks.png",
+      "name" : "PR Works",
+      "url" : ""
+    }, {
+      "logoUrl" : "../images/logos/partners/halo-halo-radio.png",
+      "name" : "Halo Halo Radio",
+      "url" : ""
+    } ],
+    "title" : "Media Sponsors"
   } ],
   "schedule" : {
     "2018-07-21" : {
