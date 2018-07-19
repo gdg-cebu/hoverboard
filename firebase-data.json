@@ -496,7 +496,7 @@
       "title" : "Assistant Professor"
     },
     "arth_lim_chiu" : {
-      "bio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials.",
+      "bio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials related to Kotlin, Android Jetpack and many more.<br><br>He's also a graduate of University of Cebu - Main Campus.",
       "company" : "",
       "companyLogo" : "",
       "companyLogoUrl" : "",
@@ -505,7 +505,7 @@
       "name" : "Arth Limchiu",
       "photo" : "/images/people/arth_lim_chiu.jpg",
       "photoUrl" : "https://firebasestorage.googleapis.com/v0/b/ioxcebu18-dev.appspot.com/o/speakers%2Farth_lim_chiu.jpg?alt=media&token=c9963d3e-285e-4013-a7a7-b0bf8dbcdabd",
-      "shortBio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials.",
+      "shortBio" : "Arth is an Android developer based in Cebu, Philippines. He maintains a personal blog - imakeanapp.com where he shares Android development tutorials related to Kotlin, Android Jetpack and many more.",
       "socials" : [ {
         "icon" : "linkedin",
         "link" : "https://www.linkedin.com/in/arthlimchiu/",
